@@ -3,7 +3,7 @@ node {
    def app
 
    stage('Clone Repo'){
-      git ''
+      git 'https://github.com/marlincia/docker-cicd.git'
    }
 
    stage('Build Image'){
