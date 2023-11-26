@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  tasks:
+   - name: Install nginx on Ubuntu
+     apt:
+       name:
+         - nginx
+       state: present
+     when:
+       - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20")
+       #- (ansible_facts['distribution'] == "Centos" and ansible_facts['distribution_major_version'] == "8")
+
+   - name: Install nginx on Centos
+     apt:
+       name:
+         - nginx
+       state: present
+     when:
+       - (ansible_facts['distribution'] == "Centos" and ansible_facts['distribution_major_version'] == "8")
+       #- (ansible_facts['distribution'] == "Centos" and ansible_facts['distribution_major_version'] == "8")
+
+   - name: starting nginx service
+     service:
+         name: nginx
+         state: started
