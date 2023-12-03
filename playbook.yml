@@ -7,13 +7,13 @@
       name: nginx
       state: absent
      when: 
-      - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribtution_major_version'] == "22")
+      - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "22")
 
    - name: remove all conf to /var/www/html/
      shell: |
          rm -rf /var/www/html/*
      when:
-       - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribtution_major_version'] == "22")
+       - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "22")
 
    - name: Install nginx on Ubuntu
      apt:
