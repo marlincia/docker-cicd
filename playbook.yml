@@ -12,7 +12,7 @@
        #- (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20")
 
    - name: Install nginx on Centos
-     apt:
+     yum:
        name:
          - nginx
        state: present
