@@ -8,7 +8,8 @@
       state: absent
 
   - name: remove all conf to /var/www/html/
-    shell: rm -rf /var/www/html/*
+    shell: |
+         rm -rf /var/www/html/*
 
    - name: Install nginx on Ubuntu
      apt:
