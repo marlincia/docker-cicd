@@ -7,19 +7,22 @@
       name: nginx
       state: absent
 
+  - name: remove all conf to /var/www/html/
+    shell: rm -rf /var/www/html/*
+
    - name: Install nginx on Ubuntu
      apt:
-       name:
-         - nginx
-       state: present
+       name: nginx
+       state: latest
      when:
        - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "22")
        #- (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20")
 
    - name: Install nginx on Centos
      yum:
-       name:
+       name: 
          - nginx
+         - epel-release
        state: present
      when:
        - (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "8")
