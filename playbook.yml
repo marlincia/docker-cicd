@@ -8,8 +8,8 @@
          - nginx
        state: present
      when:
-       - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20")
-       #- (ansible_facts['distribution'] == "Centos" and ansible_facts['distribution_major_version'] == "8")
+       - (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "22")
+       #- (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20")
 
    - name: Install nginx on Centos
      apt:
